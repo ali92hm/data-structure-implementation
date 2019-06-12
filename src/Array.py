@@ -41,20 +41,29 @@ class Array():
 
     def clear(self):
         self.size = 0
-        self.__data = [0] * self.capacity
+        self.__data = [None] * self.capacity
 
     def __getitem__(self, key):
         if key < 0 or key >= self.size:
             raise IndexOutOfBoundsError
+
         return self.__data[key]
 
     def __setitem__(self, key, value):
         if key < 0 or key >= self.size:
             raise IndexOutOfBoundsError
+
         self.__data[key] = value
 
     def __delattr__(self, key):
-        pass
+        if key < 0 or key >= self.size:
+            raise IndexOutOfBoundsError
+
+        for i in range(key, len(self) - 1):
+            self[i] = self[i + 1]
+
+        self[len(self) - 1] = None
+        self.size -= 1
 
     def __len__(self):
         return self.size
@@ -75,7 +84,7 @@ class Array():
         else:
             self.capacity *= expansion_factor
 
-        resizedArray = [0] * self.capacity
+        resizedArray = [None] * self.capacity
         for i in range(self.size):
             resizedArray[i] = self.__data[i]
 
