@@ -1,7 +1,9 @@
 # Data Structure Implementation
-A repository of famous data structures and algorithms implemented in C++ for educational purpose. 
+
+A repository of famous data structures and algorithms implemented in python for educational purpose.
 
 ## List of Data Structures
+
 ### Sequence containers
 
 - [ ] Array
@@ -78,4 +80,5 @@ A repository of famous data structures and algorithms implemented in C++ for edu
 ## [To do](https://github.com/ali92hm/raft-visualization/milestones)
 
 ## License
+
 [MIT license](http://opensource.org/licenses/MIT)
