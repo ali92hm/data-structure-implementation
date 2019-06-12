@@ -49,19 +49,26 @@ class ArrayTestWithZeroCapacity(unittest.TestCase):
 
     # Test for __len__
     def test_size_should_be_equals_to_len(self):
+        number_of_elements = 68
         self.assertEqual(len(self.array), self.array.size)
-        insertElements(self.array, 15)
+        insertElements(self.array, number_of_elements)
         self.assertEqual(len(self.array), self.array.size)
+        self.assertEqual(len(self.array), number_of_elements)
 
-    # Test for __str__
-    def test_srt_representation(self):
-        self.assertEqual(str(self.array), '{}')
+    # Test for __repr__
+    def test_repr_representation(self):
+        self.assertEqual(repr(self.array), '[]')
         self.array.add(4)
-        self.assertEqual(str(self.array), '{4}')
+        self.assertEqual(repr(self.array), '[4]')
         self.array.add(5)
         self.array.add(6)
         self.array.add(7)
-        self.assertEqual(str(self.array), '{4, 5, 6, 7}')
+        self.assertEqual(repr(self.array), '[4, 5, 6, 7]')
+
+    # Test for __str__
+    def test_str_representation_should_be_same_as_repr(self):
+        insertElements(self.array, 34)
+        self.assertEqual(repr(self.array), str(self.array))
 
 
 class ArrayTestWithInitialCapacity(unittest.TestCase):

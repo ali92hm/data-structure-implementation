@@ -59,12 +59,15 @@ class Array():
     def __len__(self):
         return self.size
 
-    def __str__(self):
-        array_string = '{'
+    def __repr__(self):
+        array_string = '['
         for key in range(len(self)):
             array_string += str(self[key]) + ('' if key + 1 == len(self) else ', ')
-        array_string += '}'
+        array_string += ']'
         return array_string
+
+    def __str__(self):
+        return repr(self)
 
     def __resize(self, expansion_factor = 2):
         if self.capacity == 0:
