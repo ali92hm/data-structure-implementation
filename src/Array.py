@@ -11,7 +11,7 @@ class Array():
     size = 0
     capacity = 0
 
-    def __init__(self, capacity = 0):
+    def __init__(self, capacity=0):
         self.capacity = capacity
         self.clear()
 
@@ -27,7 +27,7 @@ class Array():
     def find(self, value):
         pass
 
-    def remove(self, element):
+    def remove(self, value):
         pass
 
     def reverse(self):
@@ -68,7 +68,7 @@ class Array():
 
     def __resize(self, expansion_factor = 2):
         if self.capacity == 0:
-            self.capacity = 2
+            self.capacity = 1
         else:
             self.capacity *= expansion_factor
 
@@ -77,3 +77,4 @@ class Array():
             resizedArray[i] = self.__data[i]
 
         self.__data = resizedArray
+        assert(len(self.__data), self.capacity)
