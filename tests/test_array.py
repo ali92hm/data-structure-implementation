@@ -1,11 +1,11 @@
 import unittest
-import random
 from src.Array import Array
 from src.Array import IndexOutOfBoundsError
+from src.Array import ValueNotFoundError
 
 def insertElements(array, number):
     for i in range(number):
-        array.add(random.randint(0, 100))
+        array.add(i)
 
 
 class ArrayTestWithZeroCapacity(unittest.TestCase):
@@ -43,6 +43,33 @@ class ArrayTestWithZeroCapacity(unittest.TestCase):
         insertElements(self.array, number_of_elements)
         self.assertEqual(self.array.size, number_of_elements)
         self.assertEqual(self.array.capacity, 128)
+
+    # Test extend
+    def test_extend(self):
+        pass
+
+    # Test find
+    def test_find(self):
+        pass
+
+    def test_indexOf_value_exists_should_return_index(self):
+        value = 10
+        self.array.add(value)
+        key = self.array.indexOf(value)
+        self.assertEqual(key, 0)
+
+    def test_indexOf_two_value_exist_should_return_first_index(self):
+        insertElements(self.array, 20)
+        value = 10
+        index = 4
+        self.array[index] = value
+        key = self.array.indexOf(value)
+        self.assertEqual(key, index)
+
+    def test_indexOf_value_does_not_exist_should_raise_ValueNotFoundError(self):
+        insertElements(self.array, 20)
+        with self.assertRaises(ValueNotFoundError):
+            self.array.indexOf(100)
 
     # Test for __getitem__
     def test_can_get_an_item_using_brackets(self):
@@ -105,7 +132,23 @@ class ArrayTestWithZeroCapacity(unittest.TestCase):
         with self.assertRaises(IndexOutOfBoundsError):
             self.array[-11] = 1
 
+    # Test for __delattr__
+    def test_can_delete_item(self):
+        self.array.add(10)
+        del self.array[0]
+        self.assertEqual(len(self.array), 0)
 
+    # Test for __delattr__
+    def test_delete_empty_array_should_raise_exception(self):
+        pass
+
+    # Test for __delattr__
+    def test_delete_out_of_bounds_should_raise_exception(self):
+        pass
+
+    # Test for __delattr__
+    def test_delete_negative_index_should_raise_exception(self):
+        pass
 
     # Test for __len__
     def test_size_should_be_equals_to_len(self):

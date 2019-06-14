@@ -2,9 +2,11 @@
 class ArrayError(Exception):
     pass
 
-class IndexOutOfBoundsError(Exception):
+class IndexOutOfBoundsError(ArrayError):
     pass
 
+class ValueNotFoundError(ArrayError):
+    pass
 
 class Array():
     __data = list()
@@ -25,18 +27,21 @@ class Array():
         pass
 
     def find(self, value):
-        pass
+        key = self.indexOf(value)
+        return self[key]
+
+    def indexOf(self, value):
+        for i in range(len(self)):
+            if value == self[i]:
+                return i
+        else:
+            raise ValueNotFoundError
 
     def remove(self, value):
-        pass
+        key = self.indexOf(value)
+        del self[key]
 
     def reverse(self):
-        pass
-
-    def sort(self, sort_func, comparetor):
-        pass
-
-    def copy(self):
         pass
 
     def clear(self):
@@ -55,7 +60,7 @@ class Array():
 
         self.__data[key] = value
 
-    def __delattr__(self, key):
+    def __delitem__(self, key):
         if key < 0 or key >= self.size:
             raise IndexOutOfBoundsError
 
@@ -77,6 +82,12 @@ class Array():
 
     def __str__(self):
         return repr(self)
+
+    def __iter__(self):
+        pass
+
+    def __next__(self):
+        pass
 
     def __resize(self, expansion_factor = 2):
         if self.capacity == 0:
