@@ -63,13 +63,13 @@ def quick_sort(arr, start=None, end=None):
     j = end
 
     while i <= j:
-        while arr[i] < pivot_element:
+        if arr[i] < pivot_element:
             i += 1
 
-        while arr[j] > pivot_element:
+        elif arr[j] > pivot_element:
             j -= 1
 
-        if i <= j:
+        else:
             arr[i], arr[j] = arr[j], arr[i]
             i += 1
             j -= 1
