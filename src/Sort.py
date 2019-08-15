@@ -45,25 +45,23 @@ def merge(arr1, arr2):
     return result_arr
 
 
-def quick_sort(arr):
+def quick_sort(arr, start=None, end=None):
     if not arr or len(arr) == 1:
         return arr
 
-    return quick_sort_helper(arr, 0, len(arr) - 1)
+    if start is None:
+        start = 0
 
-def quick_sort_helper(arr, start, end):
+    if end is None:
+        end = len(arr) - 1
+
     if (start >= end):
         return arr
 
     pivot_element = arr[ (start + end) // 2]
-    i = partition(arr, start, end, pivot_element)
+    i = start
+    j = end
 
-    quick_sort_helper(arr, start, i - 1)
-    quick_sort_helper(arr, i, end)
-
-    return arr
-
-def partition(arr, i, j, pivot_element):
     while i <= j:
         while arr[i] < pivot_element:
             i += 1
@@ -76,5 +74,7 @@ def partition(arr, i, j, pivot_element):
             i += 1
             j -= 1
 
-    return i
+    quick_sort(arr, start, i - 1)
+    quick_sort(arr, i, end)
 
+    return arr
