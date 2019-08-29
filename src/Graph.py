@@ -36,7 +36,7 @@ class Graph:
         queue.append(start)
 
         while queue:
-            current = queue.pop()
+            current = queue.popleft()
             if current == end:
                 return path[end]
 
