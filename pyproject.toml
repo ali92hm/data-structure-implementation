@@ -1,0 +1,88 @@
+[project]
+authors = [
+  {name = "Ali Hajimirza", email = "ali@alihm.net"},
+]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Operating System :: OS Independent",
+  "License :: OSI Approved :: MIT License",
+  "Typing :: Typed",
+]
+
+dependencies = [
+  # fill me
+]
+description = "A repository of famous data structures and algorithms implemented in python for educational purpose."
+keywords = [
+  # fill me
+]
+license = {file = "LICENSE"}
+maintainers = [
+  {name = "Ali Hajimirza", email = "ali@alihm.net"},
+]
+name = "data-structure-implementation"
+readme = "README.md"
+requires-python = ">=3.7"
+version = "0.1.0"
+
+[project.urls]
+changelog = "https://github.com/ali92hm/data-structure-implementation/blob/master/CHANGELOG.md"
+documentation = "https://github.com/ali92hm/data-structure-implementation/blob/master/README.md"
+homepage = "https://github.com/ali92hm/data-structure-implementation"
+repository = "github.com"
+
+[project.entry-points]
+data-structure-implementation = "data_structure_implementation.cli.entrypoint:main"
+
+[project.gui-scripts]
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+  "setuptools>=57",
+  "toml>=0.10",
+  "wheel>=0.36",
+]
+
+[tool.isort]
+multi_line_output = 3
+profile = "black"
+skip = ""
+
+[tool.pytest.ini_options]
+testpaths = [
+  "tests",
+]
+
+[tool.black]
+exclude = '''
+/(
+|dist
+|docs
+)/
+'''
+target-version = ['py39']
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_untyped_defs = true
+follow_imports = "silent"
+ignore_missing_imports = true
+no_implicit_reexport = true
+strict_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+ignore_errors = true
+module = "tests.*"
