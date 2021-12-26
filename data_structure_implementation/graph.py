@@ -10,6 +10,10 @@ class Graph:
     ) -> None:
         pass
 
+    @property
+    def vertices(self) -> List[str]:
+        pass
+
     def get_neighbors(self, node: str) -> List[Edge]:
         pass
 
@@ -36,6 +40,10 @@ class AdjacencyMatrix(Graph):
         self._graph[from_index][to_index] = weight
         if not directed:
             self._graph[to_index][from_index] = weight
+
+    @property
+    def vertices(self) -> List[str]:
+        return self._vertices
 
     def get_neighbors(self, node: str) -> List[Edge]:
         if node not in self._index_map:
@@ -65,6 +73,10 @@ class AdjacencyList(Graph):
 
         if not directed:
             self._edges[to_node].append(Edge(from_node, weight))
+
+    @property
+    def vertices(self) -> List[str]:
+        return list(self._vertices)
 
     def get_neighbors(self, node: str) -> List[Edge]:
         if node not in self._vertices:

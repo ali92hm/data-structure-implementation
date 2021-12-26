@@ -40,9 +40,12 @@ class TestGraph:
     def test_adjacency_list(self):
         graph = AdjacencyList()
         self.build_graph(graph)
+        assert sorted(graph.vertices) == ["A", "B", "C", "D", "E"]
         self.get_neighbors_assertions(graph)
 
     def test_adjacency_matrix(self):
-        graph = AdjacencyMatrix(["A", "B", "C", "D", "E"])
+        vertices = ["A", "B", "C", "D", "E"]
+        graph = AdjacencyMatrix(vertices)
         self.build_graph(graph)
+        assert sorted(graph.vertices) == vertices
         self.get_neighbors_assertions(graph)
