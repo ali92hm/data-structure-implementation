@@ -16,6 +16,9 @@ jobs:
       - name: Initialize project
         run: |
           make init
+      - name: Run ci tests
+        run: |
+          make ci
       - name: Build package
         run: |
           make build
