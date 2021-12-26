@@ -1,15 +1,3 @@
-class ArrayError(Exception):
-    pass
-
-
-class IndexOutOfBoundsError(ArrayError):
-    pass
-
-
-class ValueNotFoundError(ArrayError):
-    pass
-
-
 class Array:
     def __init__(self, capacity=0):
         pass
