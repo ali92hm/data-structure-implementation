@@ -1,14 +1,14 @@
-def merge_sort():
+def merge_sort() -> None:
     pass
 
 
-def bubble_sort():
+def bubble_sort() -> None:
     pass
 
 
-def quick_sort():
+def quick_sort() -> None:
     pass
 
 
-def redix_sort():
+def redix_sort() -> None:
     pass
