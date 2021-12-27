@@ -1,19 +1,22 @@
 from collections import OrderedDict, defaultdict, deque
-from typing import Deque, Dict, List
+from typing import Deque, Dict, List, TypeVar
 
 from .errors import ValueNotFoundError
 from .graph import Edge, Graph
 
 
-def binary_search(arr: List[int], element: int) -> int:
-    def _search(arr: List[int], element: int, low: int, high: int) -> int:
+T = TypeVar('T', str, int, float)
+
+
+def binary_search(arr: List[T], element: T) -> T:
+    def _search(arr: List[T], element: T, low: int, high: int) -> T:
         if low > high:
             raise ValueNotFoundError(f"Element {element} was not found in array")
 
         mid_index = low + (high - low) // 2
         mid_element = arr[mid_index]
         if element == mid_element:
-            return mid_index
+            return element
         elif element > mid_element:
             return _search(arr, element, mid_index + 1, high)
         else:
