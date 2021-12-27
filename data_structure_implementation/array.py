@@ -1,48 +1,50 @@
-class Array:
-    def __init__(self, capacity=0):
+from typing import Generic, TypeVar
+
+T = TypeVar("T")
+
+
+class Array(Generic[T]):
+    def __init__(self, capacity: int = 0):
         pass
 
-    def add(self, element):
+    def append(self, element: T) -> None:
         pass
 
-    def extend(self, array):
+    def extend(self, array: "Array[T]") -> None:
         pass
 
-    def find(self, value):
+    def find(self, value: T) -> int:
         pass
 
-    def indexOf(self, value):
+    def remove(self, value: T) -> None:
         pass
 
-    def remove(self, value):
+    def reverse(self) -> None:
         pass
 
-    def reverse(self):
+    def clear(self) -> None:
         pass
 
-    def clear(self):
+    def __getitem__(self, key: int) -> T:
         pass
 
-    def __getitem__(self, key):
+    def __setitem__(self, key: int, value: T) -> None:
         pass
 
-    def __setitem__(self, key, value):
+    def __delitem__(self, key: int) -> None:
         pass
 
-    def __delitem__(self, key):
+    def __len__(self) -> int:
         pass
 
-    def __len__(self):
+    def __repr__(self) -> str:
         pass
 
-    def __repr__(self):
-        pass
+    def __str__(self) -> str:
+        return repr(self)
 
-    def __str__(self):
-        pass
+    # def __iter__(self):
+    #     pass
 
-    def __iter__(self):
-        pass
-
-    def __next__(self):
-        pass
+    # def __next__(self):
+    #     pass
