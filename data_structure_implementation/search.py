@@ -7,7 +7,7 @@ from .graph import Edge, Graph
 T = TypeVar("T", str, int, float)
 
 
-def binary_search(arr: List[T], element: T) -> T:
+def binary_search(arr: List[T], element: T) -> int:
     def _search(arr: List[T], element: T, low: int, high: int) -> int:
         if low > high:
             raise ValueNotFoundError(f"Element {element} was not found in array")
