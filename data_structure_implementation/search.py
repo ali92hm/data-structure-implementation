@@ -1,15 +1,14 @@
-from typing import List, Deque, Dict
-from collections import deque, defaultdict, OrderedDict
+from collections import OrderedDict, defaultdict, deque
+from typing import Deque, Dict, List
 
-from .graph import Graph, Edge
 from .errors import ValueNotFoundError
+from .graph import Edge, Graph
 
 
 def binary_search(arr: List[int], element: int) -> int:
-
     def _search(arr: List[int], element: int, low: int, high: int) -> int:
         if low > high:
-            raise ValueNotFoundError(f'Element {element} was not found in array')
+            raise ValueNotFoundError(f"Element {element} was not found in array")
 
         mid_index = low + (high - low) // 2
         mid_element = arr[mid_index]
@@ -40,11 +39,13 @@ def breadth_first_search(graph: Graph, start: str, end: str) -> List[str]:
                 path[neighbor.name] = list(path[node.name] + [neighbor.name])
                 queue.append(neighbor)
 
-    raise ValueNotFoundError(f'Could not find a path from {start} to {end}')
+    raise ValueNotFoundError(f"Could not find a path from {start} to {end}")
 
 
 def depth_first_search(graph: Graph, start: str, end: str) -> List[str]:
-    def _depth_first_search(graph: Graph, start: str, end: str, visited: Dict[str, bool]) -> List[str]:
+    def _depth_first_search(
+        graph: Graph, start: str, end: str, visited: Dict[str, bool]
+    ) -> List[str]:
         visited[start] = True
         if start == end:
             return list(visited.keys())
@@ -58,7 +59,7 @@ def depth_first_search(graph: Graph, start: str, end: str) -> List[str]:
 
     path = _depth_first_search(graph, start, end, OrderedDict())
     if not path:
-        raise ValueNotFoundError(f'Could not find a path from {start} to {end}')
+        raise ValueNotFoundError(f"Could not find a path from {start} to {end}")
 
     return path
 
