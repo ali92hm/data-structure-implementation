@@ -1,6 +1,6 @@
 import pytest
 
-from data_structure_implementation import AdjacencyList, AdjacencyMatrix, Edge
+from data_structure_implementation.graph import AdjacencyList, AdjacencyMatrix, Edge
 
 
 class TestGraph:
