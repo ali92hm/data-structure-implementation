@@ -18,9 +18,15 @@ class DoublyLinkedList(Generic[T]):
         self._tail = node
 
     def append(self, value: T) -> None:
-        return None
+        pass
 
     def append_left(self, value: T) -> None:
+        pass
+
+    def insert(self) -> None:
+        pass
+
+    def find(self, value: T) -> DoublyLinkedListNode[T]:
         pass
 
     def remove(self, node: DoublyLinkedListNode[T]) -> None:
@@ -59,7 +65,3 @@ class DoublyLinkedList(Generic[T]):
     # def __next__(self):
     #     pass
 
-
-# if __name__ == '__main__':
-#     d = DoublyLinkedListNode(10)
-#     print(d.value)
