@@ -50,7 +50,7 @@ build-backend = "setuptools.build_meta"
 requires = [
   "setuptools>=57",
   "toml>=0.10",
-  "wheel>=0.36",
+  "wheel>=0.38",
 ]
 
 [tool.isort]
